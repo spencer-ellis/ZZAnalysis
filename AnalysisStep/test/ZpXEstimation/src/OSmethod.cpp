@@ -36,30 +36,33 @@ OSmethod::OSmethod():Tree()
    _s_category.push_back("VHMETTagged");
    _s_category.push_back("Inclusive");
    
-   _s_category_stxs.push_back("ggH_0J_PTH_0_10");
-   _s_category_stxs.push_back("ggH_0J_PTH_10_200");
-   _s_category_stxs.push_back("ggH_1J_PTH_0_60");
-   _s_category_stxs.push_back("ggH_1J_PTH_60_120");
-   _s_category_stxs.push_back("ggH_1J_PTH_120_200");
-   _s_category_stxs.push_back("ggH_2J_PTH_0_60");
-   _s_category_stxs.push_back("ggH_2J_PTH_60_120");
-   _s_category_stxs.push_back("ggH_2J_PTH_120_200");
-   _s_category_stxs.push_back("ggH_PTH_200");
-   _s_category_stxs.push_back("ggH_VBF");
-   _s_category_stxs.push_back("VBF_1j");
-   _s_category_stxs.push_back("VBF_2j");
-   _s_category_stxs.push_back("VBF_2j_mjj_350_700_2j");
-   _s_category_stxs.push_back("VBF_2j_mjj_GT700_2j");
-   _s_category_stxs.push_back("VBF_2j_mjj_GT350_3j");
-   _s_category_stxs.push_back("VBF_GT200_2J");
-   _s_category_stxs.push_back("VH_Had");
-   _s_category_stxs.push_back("VBF_rest_VH");
-   _s_category_stxs.push_back("VH_lep_0_150");
-   _s_category_stxs.push_back("VH_Lep_GT150");
-   _s_category_stxs.push_back("ttH_Lep");
-   _s_category_stxs.push_back("ttH_Had");
-   _s_category_stxs.push_back("Inclusive");
+   //_s_category_stxs.push_back("ggH_0J_PTH_0_10");
+   //_s_category_stxs.push_back("ggH_0J_PTH_10_200");
+   //_s_category_stxs.push_back("ggH_1J_PTH_0_60");
+   //_s_category_stxs.push_back("ggH_1J_PTH_60_120");
+   //_s_category_stxs.push_back("ggH_1J_PTH_120_200");
+   //_s_category_stxs.push_back("ggH_2J_PTH_0_60");
+   //_s_category_stxs.push_back("ggH_2J_PTH_60_120");
+   //_s_category_stxs.push_back("ggH_2J_PTH_120_200");
+   //_s_category_stxs.push_back("ggH_PTH_200");
+   //_s_category_stxs.push_back("ggH_VBF");
+   //_s_category_stxs.push_back("VBF_1j");
+   //_s_category_stxs.push_back("VBF_2j");
+   //_s_category_stxs.push_back("VBF_2j_mjj_350_700_2j");
+   //_s_category_stxs.push_back("VBF_2j_mjj_GT700_2j");
+   //_s_category_stxs.push_back("VBF_2j_mjj_GT350_3j");
+   //_s_category_stxs.push_back("VBF_GT200_2J");
+   //_s_category_stxs.push_back("VH_Had");
+   //_s_category_stxs.push_back("VBF_rest_VH");
+   //_s_category_stxs.push_back("VH_lep_0_150");
+   //_s_category_stxs.push_back("VH_Lep_GT150");
+   //_s_category_stxs.push_back("ttH_Lep");
+   //_s_category_stxs.push_back("ttH_Had");
+   //_s_category_stxs.push_back("Inclusive");
    
+   _s_category_stxs.push_back("noCat"); // june 17
+   _s_category_stxs.push_back("Inclusive"); // june 17
+
    _s_region.push_back("2P2F");
    _s_region.push_back("3P1F");
    _s_region.push_back("OS");

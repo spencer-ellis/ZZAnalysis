@@ -1,7 +1,11 @@
 #ifndef CATEGORY_H
 #define CATEGORY_H
 
+enum noCategories {
 
+  };
+  
+extern "C" int noCategories( );
 
 //---------- RunI categorization 
 
