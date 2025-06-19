@@ -3,6 +3,8 @@
 
 enum noCategories {
 
+  noCat = 0
+  
   };
   
 extern "C" int noCategories( );

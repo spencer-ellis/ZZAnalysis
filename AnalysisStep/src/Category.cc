@@ -20,7 +20,7 @@ TH1F *hpt_bin=new TH1F("hpt_bin","",3, bins_hpt4);
 
 extern "C" int noCategories( ) {
 
-  return 0; // i dont know if this is what we want - spencer 15/04
+  return noCat;
 
 }
 
