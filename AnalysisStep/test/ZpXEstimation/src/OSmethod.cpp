@@ -60,8 +60,8 @@ OSmethod::OSmethod():Tree()
    //_s_category_stxs.push_back("ttH_Had");
    //_s_category_stxs.push_back("Inclusive");
    
-   _s_category_stxs.push_back("noCat"); // june 17
-   _s_category_stxs.push_back("Inclusive"); // june 17
+   _s_category_stxs.push_back("noCat");
+   _s_category_stxs.push_back("Inclusive");
 
    _s_region.push_back("2P2F");
    _s_region.push_back("3P1F");
@@ -220,43 +220,45 @@ void OSmethod::FillDataMCPlots( TString input_file_data_name )
       
       _current_final_state = FindFinalState();
       
-      for ( int j = 0; j < nCleanedJetsPt30; j++)
-      {
-         jetPt[j] = JetPt->at(j);
-         jetEta[j] = JetEta->at(j);
-         jetPhi[j] = JetPhi->at(j);
-         jetMass[j] = JetMass->at(j);
-         jetQGL[j] = JetQGLikelihood->at(j);
-         jetPgOverPq[j] = 1./JetQGLikelihood->at(j) - 1.;
-      }
-      
-      _current_category = categoryMor18(  nExtraLep,
-					  nExtraZ,
-					  nCleanedJetsPt30,
-					  nCleanedJetsPt30BTagged_bTagSF,
-					  jetQGL,
-					  p_JJQCD_SIG_ghg2_1_JHUGen_JECNominal,
-					  p_JQCD_SIG_ghg2_1_JHUGen_JECNominal,
-					  p_JJVBF_SIG_ghv1_1_JHUGen_JECNominal,
-					  p_JVBF_SIG_ghv1_1_JHUGen_JECNominal,
-					  pAux_JVBF_SIG_ghv1_1_JHUGen_JECNominal,
-					  p_HadWH_SIG_ghw1_1_JHUGen_JECNominal,
-					  p_HadZH_SIG_ghz1_1_JHUGen_JECNominal,
-					  p_HadWH_mavjj_JECNominal,
-					  p_HadWH_mavjj_true_JECNominal,
-					  p_HadZH_mavjj_JECNominal,
-					  p_HadZH_mavjj_true_JECNominal,
-					  jetPhi,
-					  ZZMass,
-					  PFMET,
-					  false,// Use VHMET category
-					  false);// Use QG tagging
-      
-      _current_category_stxs = stage1_reco_1p1 ( nCleanedJetsPt30,
-                                                 DiJetMass,
-                                                 ZZPt,
-                                                 _current_category,
-                                                 ZZjjPt);
+      // for ( int j = 0; j < nCleanedJetsPt30; j++)
+      // {
+      //    jetPt[j] = JetPt->at(j);
+      //    jetEta[j] = JetEta->at(j);
+      //    jetPhi[j] = JetPhi->at(j);
+      //    jetMass[j] = JetMass->at(j);
+      //    jetQGL[j] = JetQGLikelihood->at(j);
+      //    jetPgOverPq[j] = 1./JetQGLikelihood->at(j) - 1.;
+      // }
+
+      // _current_category = categoryMor18(  nExtraLep,
+			// 		  nExtraZ,
+			// 		  nCleanedJetsPt30,
+			// 		  nCleanedJetsPt30BTagged_bTagSF,
+			// 		  jetQGL,
+			// 		  p_JJQCD_SIG_ghg2_1_JHUGen_JECNominal,
+			// 		  p_JQCD_SIG_ghg2_1_JHUGen_JECNominal,
+			// 		  p_JJVBF_SIG_ghv1_1_JHUGen_JECNominal,
+			// 		  p_JVBF_SIG_ghv1_1_JHUGen_JECNominal,
+			// 		  pAux_JVBF_SIG_ghv1_1_JHUGen_JECNominal,
+			// 		  p_HadWH_SIG_ghw1_1_JHUGen_JECNominal,
+			// 		  p_HadZH_SIG_ghz1_1_JHUGen_JECNominal,
+			// 		  p_HadWH_mavjj_JECNominal,
+			// 		  p_HadWH_mavjj_true_JECNominal,
+			// 		  p_HadZH_mavjj_JECNominal,
+			// 		  p_HadZH_mavjj_true_JECNominal,
+			// 		  jetPhi,
+			// 		  ZZMass,
+			// 		  PFMET,
+			// 		  false,// Use VHMET category
+			// 		  false);// Use QG tagging
+         //
+         // _current_category_stxs = stage1_reco_1p1 ( nCleanedJetsPt30,
+         //                                            DiJetMass,
+         //                                            ZZPt,
+         //                                            _current_category,
+         //                                            ZZjjPt);
+
+      _current_category_stxs = noCategories ( );
       
       _k_factor = calculate_K_factor(input_file_data_name);
       _event_weight = (_lumi * 1000 * xsec * _k_factor * overallEventWeight * L1prefiringWeight) / gen_sum_weights;
@@ -314,43 +316,45 @@ void OSmethod::MakeHistogramsZX( TString input_file_data_name, TString  input_fi
 
       _current_final_state = FindFinalState();
       
-      for ( int j = 0; j < nCleanedJetsPt30; j++)
-      {
-         jetPt[j] = JetPt->at(j);
-         jetEta[j] = JetEta->at(j);
-         jetPhi[j] = JetPhi->at(j);
-         jetMass[j] = JetMass->at(j);
-         jetQGL[j] = JetQGLikelihood->at(j);
-         jetPgOverPq[j] = 1./JetQGLikelihood->at(j) - 1.;
-      }
-      
-      _current_category = categoryMor18(  nExtraLep,
-					  nExtraZ,
-					  nCleanedJetsPt30,
-					  nCleanedJetsPt30BTagged_bTagSF,
-					  jetQGL,
-					  p_JJQCD_SIG_ghg2_1_JHUGen_JECNominal,
-					  p_JQCD_SIG_ghg2_1_JHUGen_JECNominal,
-					  p_JJVBF_SIG_ghv1_1_JHUGen_JECNominal,
-					  p_JVBF_SIG_ghv1_1_JHUGen_JECNominal,
-					  pAux_JVBF_SIG_ghv1_1_JHUGen_JECNominal,
-					  p_HadWH_SIG_ghw1_1_JHUGen_JECNominal,
-					  p_HadZH_SIG_ghz1_1_JHUGen_JECNominal,
-					  p_HadWH_mavjj_JECNominal,
-					  p_HadWH_mavjj_true_JECNominal,
-					  p_HadZH_mavjj_JECNominal,
-					  p_HadZH_mavjj_true_JECNominal,
-					  jetPhi,
-					  ZZMass,
-					  PFMET,
-					  false,// Use VHMET category
-					  false);// Use QG tagging
-      
-      _current_category_stxs = stage1_reco_1p1 ( nCleanedJetsPt30,
-                                                 DiJetMass,
-                                                 ZZPt,
-                                                 _current_category,
-                                                 ZZjjPt);
+      // for ( int j = 0; j < nCleanedJetsPt30; j++)
+      // {
+      //    jetPt[j] = JetPt->at(j);
+      //    jetEta[j] = JetEta->at(j);
+      //    jetPhi[j] = JetPhi->at(j);
+      //    jetMass[j] = JetMass->at(j);
+      //    jetQGL[j] = JetQGLikelihood->at(j);
+      //    jetPgOverPq[j] = 1./JetQGLikelihood->at(j) - 1.;
+      // }
+
+      // _current_category = categoryMor18(  nExtraLep,
+			// 		  nExtraZ,
+			// 		  nCleanedJetsPt30,
+			// 		  nCleanedJetsPt30BTagged_bTagSF,
+			// 		  jetQGL,
+			// 		  p_JJQCD_SIG_ghg2_1_JHUGen_JECNominal,
+			// 		  p_JQCD_SIG_ghg2_1_JHUGen_JECNominal,
+			// 		  p_JJVBF_SIG_ghv1_1_JHUGen_JECNominal,
+			// 		  p_JVBF_SIG_ghv1_1_JHUGen_JECNominal,
+			// 		  pAux_JVBF_SIG_ghv1_1_JHUGen_JECNominal,
+			// 		  p_HadWH_SIG_ghw1_1_JHUGen_JECNominal,
+			// 		  p_HadZH_SIG_ghz1_1_JHUGen_JECNominal,
+			// 		  p_HadWH_mavjj_JECNominal,
+			// 		  p_HadWH_mavjj_true_JECNominal,
+			// 		  p_HadZH_mavjj_JECNominal,
+			// 		  p_HadZH_mavjj_true_JECNominal,
+			// 		  jetPhi,
+			// 		  ZZMass,
+			// 		  PFMET,
+			// 		  false,// Use VHMET category
+			// 		  false);// Use QG tagging
+      //
+      // _current_category_stxs = stage1_reco_1p1 ( nCleanedJetsPt30,
+      //                                            DiJetMass,
+      //                                            ZZPt,
+      //                                            _current_category,
+      //                                            ZZjjPt);
+
+      _current_category_stxs = noCategories ( );
 
       if ( test_bit(CRflag, CRZLLos_2P2F) )
       {
@@ -443,43 +447,45 @@ void OSmethod::MakeZXMCContribution( TString input_file_data_name, TString  inpu
       
       _current_final_state = FindFinalState();
       
-      for ( int j = 0; j < nCleanedJetsPt30; j++)
-      {
-         jetPt[j] = JetPt->at(j);
-         jetEta[j] = JetEta->at(j);
-         jetPhi[j] = JetPhi->at(j);
-         jetMass[j] = JetMass->at(j);
-         jetQGL[j] = JetQGLikelihood->at(j);
-         jetPgOverPq[j] = 1./JetQGLikelihood->at(j) - 1.;
-      }
-      
-      _current_category = categoryMor18(  nExtraLep,
-					  nExtraZ,
-					  nCleanedJetsPt30,
-					  nCleanedJetsPt30BTagged_bTagSF,
-					  jetQGL,
-					  p_JJQCD_SIG_ghg2_1_JHUGen_JECNominal,
-					  p_JQCD_SIG_ghg2_1_JHUGen_JECNominal,
-					  p_JJVBF_SIG_ghv1_1_JHUGen_JECNominal,
-					  p_JVBF_SIG_ghv1_1_JHUGen_JECNominal,
-					  pAux_JVBF_SIG_ghv1_1_JHUGen_JECNominal,
-					  p_HadWH_SIG_ghw1_1_JHUGen_JECNominal,
-					  p_HadZH_SIG_ghz1_1_JHUGen_JECNominal,
-					  p_HadWH_mavjj_JECNominal,
-					  p_HadWH_mavjj_true_JECNominal,
-					  p_HadZH_mavjj_JECNominal,
-					  p_HadZH_mavjj_true_JECNominal,
-					  jetPhi,
-					  ZZMass,
-					  PFMET,
-					  false,// Use VHMET category
-					  false);// Use QG tagging
-      
-      _current_category_stxs = stage1_reco_1p1 ( nCleanedJetsPt30,
-                                                 DiJetMass,
-                                                 ZZPt,
-                                                 _current_category,
-                                                 ZZjjPt);
+      // for ( int j = 0; j < nCleanedJetsPt30; j++)
+      // {
+      //    jetPt[j] = JetPt->at(j);
+      //    jetEta[j] = JetEta->at(j);
+      //    jetPhi[j] = JetPhi->at(j);
+      //    jetMass[j] = JetMass->at(j);
+      //    jetQGL[j] = JetQGLikelihood->at(j);
+      //    jetPgOverPq[j] = 1./JetQGLikelihood->at(j) - 1.;
+      // }
+
+      // _current_category = categoryMor18(  nExtraLep,
+			// 		  nExtraZ,
+			// 		  nCleanedJetsPt30,
+			// 		  nCleanedJetsPt30BTagged_bTagSF,
+			// 		  jetQGL,
+			// 		  p_JJQCD_SIG_ghg2_1_JHUGen_JECNominal,
+			// 		  p_JQCD_SIG_ghg2_1_JHUGen_JECNominal,
+			// 		  p_JJVBF_SIG_ghv1_1_JHUGen_JECNominal,
+			// 		  p_JVBF_SIG_ghv1_1_JHUGen_JECNominal,
+			// 		  pAux_JVBF_SIG_ghv1_1_JHUGen_JECNominal,
+			// 		  p_HadWH_SIG_ghw1_1_JHUGen_JECNominal,
+			// 		  p_HadZH_SIG_ghz1_1_JHUGen_JECNominal,
+			// 		  p_HadWH_mavjj_JECNominal,
+			// 		  p_HadWH_mavjj_true_JECNominal,
+			// 		  p_HadZH_mavjj_JECNominal,
+			// 		  p_HadZH_mavjj_true_JECNominal,
+			// 		  jetPhi,
+			// 		  ZZMass,
+			// 		  PFMET,
+			// 		  false,// Use VHMET category
+			// 		  false);// Use QG tagging
+      //
+      // _current_category_stxs = stage1_reco_1p1 ( nCleanedJetsPt30,
+      //                                            DiJetMass,
+      //                                            ZZPt,
+      //                                            _current_category,
+      //                                            ZZjjPt);
+
+      _current_category_stxs = noCategories ( );
       
       _k_factor = calculate_K_factor(input_file_data_name);
       _event_weight = (_lumi * 1000 * xsec * _k_factor * overallEventWeight * L1prefiringWeight) / gen_sum_weights;
@@ -1610,7 +1616,7 @@ int OSmethod::find_current_process( TString input_file_name )
    if ( input_file_name.Contains("ZZTo4l") )         current_process = Settings::qqZZ;
    if ( input_file_name.Contains("DYJetsToLL") )     current_process = Settings::DY;
    if ( input_file_name.Contains("TTJets") )         current_process = Settings::ttbar;
-   if ( input_file_name.Contains("TTTo2L2Nu") )      current_process = Settings::ttbar;
+   if ( input_file_name.Contains("TTto2L2Nu") )      current_process = Settings::ttbar;
    
    return current_process;
 }

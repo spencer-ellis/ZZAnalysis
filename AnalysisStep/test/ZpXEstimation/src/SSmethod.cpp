@@ -725,18 +725,16 @@ void SSmethod::DeclareFRHistos()
 void SSmethod::DeclareDataMCHistos()
 {
    for (int i_reg = 0; i_reg < num_of_regions_ss; i_reg ++)
-   {cout << "flag1" << endl;
+   {
       for (int i_proc = 0; i_proc < Settings::Total; i_proc++)
-      {cout << "flag2" << endl;
+      {
          for (int i_fs = 0; i_fs < num_of_final_states; i_fs++)
-         {cout << "flag3" << endl; cout << "num: " << num_of_categories_stxs << endl;
+         {
             for (int i_cat = 0; i_cat < num_of_categories_stxs; i_cat++)
-            {cout << "flag4" << endl;
-               cout << i_cat << endl;
-               cout << _s_category_stxs.at(i_cat) << endl;
-               _histo_name = "M4l_" + _s_region.at(i_reg) + "_" + _s_process.at(i_proc) + "_" + _s_final_state.at(i_fs) + "_" + _s_category_stxs.at(i_cat); cout << "flag5" << endl;
-               _histo_labels = ";" + Plots::M4l().var_X_label + ";" + Plots::M4l().var_Y_label; cout << "flag6" << endl;
-               histos_1D[i_reg][i_proc][i_fs][i_cat] = new TH1F(_histo_name, _histo_labels, Plots::M4l().var_N_bin, Plots::M4l().var_min, Plots::M4l().var_max); cout << "flag7" << endl;
+            {
+               _histo_name = "M4l_" + _s_region.at(i_reg) + "_" + _s_process.at(i_proc) + "_" + _s_final_state.at(i_fs) + "_" + _s_category_stxs.at(i_cat);
+               _histo_labels = ";" + Plots::M4l().var_X_label + ";" + Plots::M4l().var_Y_label;
+               histos_1D[i_reg][i_proc][i_fs][i_cat] = new TH1F(_histo_name, _histo_labels, Plots::M4l().var_N_bin, Plots::M4l().var_min, Plots::M4l().var_max);
             }
          }
       }
