@@ -1337,7 +1337,7 @@ void SSmethod::Fit_FRnMH_graphs(TGraphErrors *FR_MissingHits_graph[99][99])
 			Ele_FR_correction_function[i_eta][i_pt] = new TF1(func_name,"[0]*x+[1]",0,3);
 			Ele_FR_correction_function[i_eta][i_pt]->SetParameter(0,1.);
 			Ele_FR_correction_function[i_eta][i_pt]->SetParameter(1,0.);
-         // if ((i_pt == 4 || i_pt == 5) && (i_eta == 0)) Ele_FR_correction_function[i_eta][i_pt]->FixParameter(1,0.); // PATCH
+         if ((i_pt == 4 || i_pt == 5) && (i_eta == 0)) Ele_FR_correction_function[i_eta][i_pt]->FixParameter(1,0.); // PATCH
 
 			FR_MissingHits_graph[i_eta][i_pt]->Fit(Ele_FR_correction_function[i_eta][i_pt], "Q");
 

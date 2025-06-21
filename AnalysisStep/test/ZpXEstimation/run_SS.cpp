@@ -20,7 +20,7 @@ int main( int argc, char *argv[] )
 {
    setTDRStyle();
    
-   TString YEAR = "2022EE";
+   TString YEAR = "2023postBPix";
    
    TString Data;
    if ( YEAR == "2022" ) { Data = "/eos/user/l/lurda/CMS/HZZ/XS_analysis/250303/2022_Data/Data_eraCD_preEE_SKIMMED.root"; }
@@ -46,6 +46,7 @@ int main( int argc, char *argv[] )
    bool SubtractMCContribution = true;
 	
    float pT_bins[] = {5, 7, 10, 20, 30, 40, 50, 80};
+   // float pT_bins[] = {5, 7, 10, 20, 30, 40, 80}; // 2023postBPix SS e fix
 
    SSmethod *ss = new SSmethod();
    //ss->SetLumi(35.92); // 2016 lumi

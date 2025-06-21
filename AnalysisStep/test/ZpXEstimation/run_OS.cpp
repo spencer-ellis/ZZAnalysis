@@ -21,7 +21,7 @@ int main( int argc, char *argv[] )
 {
    setTDRStyle();
 
-   TString YEAR = "2022EE";
+   TString YEAR = "2023postBPix";
    
    TString Data;
    if ( YEAR == "2022" ) { Data = "/eos/user/l/lurda/CMS/HZZ/XS_analysis/250303/2022_Data/Data_eraCD_preEE_SKIMMED.root"; }
