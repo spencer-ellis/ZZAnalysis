@@ -145,7 +145,8 @@ void OSmethod::FillFRHistos( TString input_file_data_name )
       {
          // Final event weight
          _k_factor = calculate_K_factor(input_file_data_name);
-         _event_weight = (_lumi * 1000 * xsec * _k_factor * overallEventWeight * L1prefiringWeight) / gen_sum_weights;
+         // _event_weight = (_lumi * 1000 * xsec * _k_factor * overallEventWeight * L1prefiringWeight) / gen_sum_weights;
+         _event_weight = (_lumi * 1000 * overallEventWeight) / gen_sum_weights;
 
          //if( LepisID->at(2) ) // Changed because we are not using BDT-based muon ID but PF+ISO            
          if(LepisID->at(2) && ((fabs(LepLepId->at(2)) == 11) ? LepCombRelIsoPF->at(2) < 999999. : LepCombRelIsoPF->at(2) < 0.35))
@@ -261,7 +262,8 @@ void OSmethod::FillDataMCPlots( TString input_file_data_name )
       _current_category_stxs = noCategories ( );
       
       _k_factor = calculate_K_factor(input_file_data_name);
-      _event_weight = (_lumi * 1000 * xsec * _k_factor * overallEventWeight * L1prefiringWeight) / gen_sum_weights;
+      //_event_weight = (_lumi * 1000 * xsec * _k_factor * overallEventWeight * L1prefiringWeight) / gen_sum_weights;
+      _event_weight = (_lumi * 1000 * overallEventWeight) / gen_sum_weights;
       
       if ( test_bit(CRflag, CRZLLos_2P2F) ) histos_1D[Settings::reg2P2F][_current_process][_current_final_state][_current_category_stxs]->Fill(ZZMass, (_current_process == Settings::Data) ? 1 :  _event_weight);
       if ( test_bit(CRflag, CRZLLos_3P1F) ) histos_1D[Settings::reg3P1F][_current_process][_current_final_state][_current_category_stxs]->Fill(ZZMass, (_current_process == Settings::Data) ? 1 :  _event_weight);
@@ -488,8 +490,9 @@ void OSmethod::MakeZXMCContribution( TString input_file_data_name, TString  inpu
       _current_category_stxs = noCategories ( );
       
       _k_factor = calculate_K_factor(input_file_data_name);
-      _event_weight = (_lumi * 1000 * xsec * _k_factor * overallEventWeight * L1prefiringWeight) / gen_sum_weights;
-      
+      //_event_weight = (_lumi * 1000 * xsec * _k_factor * overallEventWeight * L1prefiringWeight) / gen_sum_weights;
+      _event_weight = (_lumi * 1000 * overallEventWeight) / gen_sum_weights;
+
       if( LepisID->at(3) && ((fabs(LepLepId->at(3)) == 11) ? LepCombRelIsoPF->at(3) < 999999. : LepCombRelIsoPF->at(3) < 0.35))
       {
 	_f4    = FR->GetFakeRate(LepPt->at(2),LepEta->at(2),LepLepId->at(2));
